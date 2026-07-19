@@ -46,7 +46,7 @@ public class Main{
         flightNumber2.addPassanger(passengerNumber3);
 
          System.err.println("הוספת טיסה חדשה .1הוספת נוסע לטיסה .2 הצגת כל הטיסות .3 חיפוש נוסע לפי דרכון .4 העברת נוסע בין טיסות .5 הטיסה העמוסה ביותר .6 יציאה .0 _ :בחירה ");
-          int choice = input.nextInt();      
+          int yourChoice = input.nextInt();      
           
           while(choice != 0 ){
             if(choice == 1) {
@@ -107,8 +107,7 @@ public class Main{
         
         Passenger pasenger = flight.findPassenger(passport);
         
-        if(p != null) {
-            System.out.println( flight.getFlightNumber());
+        if(pasenger != null) {
             System.out.println(pasenger.toString());
         } else {
             System.out.println("not on");
@@ -130,7 +129,7 @@ public class Main{
         }else{
                 System.out.println("error");
         }
-        choice = input.nextInt();
+        yourChoice = input.nextInt();
     }
 }
     
