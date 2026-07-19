@@ -37,16 +37,16 @@ public class Main{
         airline.addFlight(flightNumber2);
 
         // יצירת נוסעים והוספתם ישירות לטיסות
-        Passenger passengerNumber1 = new Passenger("Yossi", 25, "123456", 20.5);
-        Passenger passengerNumber2 = new Passenger("Dana", 30, "789012", 25.0); // חריגה במשקל קל, תבדוק isOverWeight
-        Passenger passengerNumber3 = new Passenger("Avi", 17, "456789", 12.0);
+        Passenger passengerNumber1 = new Passenger("p1", 24, "123456", 17.8);
+        Passenger passengerNumber2 = new Passenger("p1", 35, "7891011", 23.0); 
+        Passenger passengerNumber3 = new Passenger("p2", 21, "12131415", 22.9);
 
         flightNumber1.addPassanger(passengerNumber1);
         flightNumber1.addPassanger(passengerNumber2);
         flightNumber2.addPassanger(passengerNumber3);
 
          System.err.println("הוספת טיסה חדשה .1הוספת נוסע לטיסה .2 הצגת כל הטיסות .3 חיפוש נוסע לפי דרכון .4 העברת נוסע בין טיסות .5 הטיסה העמוסה ביותר .6 יציאה .0 _ :בחירה ");
-          int choice = input.nextInt();      // קורא מספר שלם 
+          int choice = input.nextInt();      
           
           while(choice != 0 ){
             if(choice == 1) {
@@ -58,7 +58,7 @@ public class Main{
                 String to = input.nextLine();
                 System.out.print("max of people ");
                 int max = input.nextInt();
-                input.nextLine(); // ניקוי באפר
+                input.nextLine(); 
              Flight flight = new Flight(number, from, to, max, 0);
             airline.addFlight(flight);
             }
@@ -77,13 +77,13 @@ public class Main{
                     String passport = input.nextLine();
                     System.out.print("wight");
                     double luggage = input.nextDouble();
-                    input.nextLine(); // ניקוי באפר
+                    input.nextLine(); 
 
                     Passenger passenger = new Passenger(name, age, passport, luggage);
                     passenger.cheak(); 
 
                     if (f.addPassanger(passenger)) {
-                        System.out.println("add passanger");
+                        System.out.println("added passanger");
                     }
                 } else {
                     System.out.println("not in the system");
@@ -105,19 +105,18 @@ public class Main{
     
     if(flight != null) {
         
-        Passenger p = flight.findPassenger(passport);
+        Passenger pasenger = flight.findPassenger(passport);
         
         if(p != null) {
-            System.out.println("הנוסע נמצא בטיסה מספר: " + flight.getFlightNumber());
-            System.out.println("פרטי הנוסע: " + p.toString());
+            System.out.println( flight.getFlightNumber());
+            System.out.println(pasenger.toString());
         } else {
-            System.out.println("הנוסע לא נמצא בטיסה זו.");
+            System.out.println("not on");
         }
-    } else {
-        System.out.println("error: הטיסה שציינת לא קיימת במערכת.");
+    } 
     }
-            }
-            else if(choice == 5) {
+        }
+        else if(choice == 5) {
                 System.out.print("passport number ");
                 String passport = input.nextLine();
                 System.out.print("form flight ");
@@ -125,14 +124,13 @@ public class Main{
                 System.out.print("destaniton flight");
                 String toFlight = input.nextLine();
                 airline.movePassenger(passport, fromFlight, toFlight);
-            }
-            else if(choice == 6) {
+        }
+        else if(choice == 6) {
                 System.out.println(airline.getFullestFlight());
-            }else{
+        }else{
                 System.out.println("error");
-            }
-             choice = input.nextInt();
-          }
+        }
+        choice = input.nextInt();
     }
-    
 }
+    
