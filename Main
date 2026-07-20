@@ -1,38 +1,14 @@
 public class Main{
     public static void main(String[] args){
-        //Passenger
-       // Passenger p1 = new Passenger("p1", 15, "1234", 17);
-        //Passenger p2 = new Passenger("p2", -1, "5678", 19); 
-        //Passenger p3 = new Passenger("p3", 101, "91011", 15);
-        //p1.cheak(); p2.cheak(); p3.cheak();
-        //System.out.println(p1);
-        //System.out.println(p2);
-        //System.out.println(p3);
-
-        //Flight
-        //Flight flight = new Flight("MK101", "Tel Aviv", "Paris", 3, 0);
-        //Passenger p1 = new Passenger("Dan", 25, "111", 20);
-        //Passenger p2 = new Passenger("Noa", 30, "222", 18);
-        //Passenger p3 = new Passenger("Eli", 40, "333", 24);
-        //Passenger p4 = new Passenger("Sara", 22, "444", 15);
-        //flight.addPassanger(p1);
-        //System.out.println(flight);
-        //flight.addPassanger(p2);
-        //System.out.println(flight);
-        //flight.addPassanger(p3);
-        //System.out.println(flight);
-        //System.out.println(flight.addPassanger(p4));
-        //System.out.println(flight);
-        //flight.removePassenger("222");
-        //System.out.println(flight);
+       
     
         //Scanner
 
         Airline airline = new Airline();        
          Scanner input = new Scanner(System.in);
 
-         Flight flightNumber1 = new Flight("LY315", "Tel Aviv", "London", 150, 0);
-        Flight flightNumber2 = new Flight("UA90", "Tel Aviv", "New York", 250, 0);
+         Flight flightNumber1 = new Flight("Ps125", "Paris", "TelAviv", 170, 0);
+        Flight flightNumber2 = new Flight("TA340", "Tel Aviv", "paris", 240, 0);
         airline.addFlight(flightNumber1);
         airline.addFlight(flightNumber2);
 
@@ -85,8 +61,6 @@ public class Main{
                     if (f.addPassanger(passenger)) {
                         System.out.println("added passanger");
                     }
-                } else {
-                    System.out.println("not in the system");
                 }
             }
             else if(choice == 3) {
@@ -95,25 +69,25 @@ public class Main{
             }
             
             else if(choice == 4 ){
-        System.out.print("passport number");
-        String passport = input.nextLine(); 
+            System.out.print("passport number");
+            String passport = input.nextLine(); 
     
-         System.out.print("flight number");
-         String flightNum = input.nextLine();
+            System.out.print("flight number");
+            String flightNum = input.nextLine();
     
-       Flight flight = airline.getFlightByNumber(flightNum);
+            Flight flight = airline.getFlightByNumber(flightNum);
     
-    if(flight != null) {
+             if(flight != null) {
         
-        Passenger pasenger = flight.findPassenger(passport);
+             Passenger pasenger = flight.findPassenger(passport);
         
-        if(pasenger != null) {
-            System.out.println(pasenger.toString());
-        } else {
-            System.out.println("not on");
-        }
-    } 
-    }
+                 if(pasenger != null) {
+                 System.out.println(pasenger.toString());
+                 } else {
+                 System.out.println("not on");
+                 }
+             } 
+         }
         }
         else if(choice == 5) {
                 System.out.print("passport number ");
