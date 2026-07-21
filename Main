@@ -24,8 +24,8 @@ public class Main{
          System.err.println("הוספת טיסה חדשה .1הוספת נוסע לטיסה .2 הצגת כל הטיסות .3 חיפוש נוסע לפי דרכון .4 העברת נוסע בין טיסות .5 הטיסה העמוסה ביותר .6 יציאה .0 _ :בחירה ");
           int yourChoice = input.nextInt();      
           
-          while(choice != 0 ){
-            if(choice == 1) {
+          while(yourChoice != 0 ){
+            if(yourChoice == 1) {
                 System.out.print("flight number ");
                 String number = input.nextLine();
                 System.out.print("now place ");
@@ -38,7 +38,7 @@ public class Main{
              Flight flight = new Flight(number, from, to, max, 0);
             airline.addFlight(flight);
             }
-            else if(choice == 2) {
+            else if(yourChoice == 2) {
            System.out.print("number of flight");
                 String flightNum = input.nextLine();
                 
@@ -63,12 +63,12 @@ public class Main{
                     }
                 }
             }
-            else if(choice == 3) {
+            else if(yourChoice == 3) {
                 String destination = input.nextLine();
                 airline.printFlightsTo(destination);
             }
             
-            else if(choice == 4 ){
+            else if(yourChoice == 4 ){
             System.out.print("passport number");
             String passport = input.nextLine(); 
     
@@ -87,9 +87,9 @@ public class Main{
                  System.out.println("not on");
                  }
              } 
-         }
-        }
-        else if(choice == 5) {
+         
+            }
+        else if(yourChoice == 5) {
                 System.out.print("passport number ");
                 String passport = input.nextLine();
                 System.out.print("form flight ");
@@ -98,12 +98,13 @@ public class Main{
                 String toFlight = input.nextLine();
                 airline.movePassenger(passport, fromFlight, toFlight);
         }
-        else if(choice == 6) {
+        else if(yourChoice == 6) {
                 System.out.println(airline.getFullestFlight());
         }else{
                 System.out.println("error");
         }
         yourChoice = input.nextInt();
     }
+}
 }
     

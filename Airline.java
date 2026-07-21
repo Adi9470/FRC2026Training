@@ -3,19 +3,21 @@ public class Airline {
     private Flight[] flightArr;
     private int flightCount;
 
-    public void addFlight(Flight f){
+    public Boolean addFlight(Flight f){
         int indexI = 0;
         for(int i = 0; i< flightArr.length; i++){
             if(f.getFlightNumber() == flightArr[i].getFlightNumber()){
-                indexI = i;
+               return false;
+            }
+        }
+        for(int j = 0; j <flightArr.length; j++){
+            if (flightArr[j] == null) {
+                flightArr[j] = f;
                 break;
             }
         }
-        for(int i = indexI +1 ; i <flightArr.length; i++){
-            if(flightArr[i] == null){
-                flightArr[i] = f;
-            }
-        }
+       
+        return true;
     }
     public Flight getFlightByNumber(String number){
         for(int i = 0; i<flightArr.length; i++){
